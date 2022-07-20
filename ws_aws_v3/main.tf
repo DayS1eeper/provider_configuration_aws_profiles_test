@@ -11,10 +11,13 @@ provider "aws" {
   region = "us-east-1"
 }
 variable "bucket_name" {
-  type=string
+  type = string
 }
-resource aws_s3_bucket_object "obj1" {
-  bucket = var.bucket_name
-  key    = "obj1"
-  content = "obj1 content"
+variable "object_name" {
+  type = string
+}
+resource "aws_s3_bucket_object" "obj1" {
+  bucket  = var.bucket_name
+  key     = var.object_name
+  content = "${varobject_name} content"
 }

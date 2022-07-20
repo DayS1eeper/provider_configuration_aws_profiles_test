@@ -3,18 +3,21 @@ terraform {
   required_providers {
     aws = {
       source  = "hashicorp/aws"
-      version = "3.0.0"
+      version = "~> 4.22"
     }
   }
-}
-variable "bucket_name" {
-  type=string
 }
 provider "aws" {
   region = "us-east-1"
 }
+variable "bucket_name" {
+  type=string
+}
+variable "object_name" {
+  type=string
+}
 resource aws_s3_bucket_object "obj1" {
   bucket = var.bucket_name
-  key    = "obj3"
-  content = "obj3 content"
+  key    = var.object_name
+  content = "${varobject_name} content"
 }

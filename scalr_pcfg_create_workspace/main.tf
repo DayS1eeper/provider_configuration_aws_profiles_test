@@ -62,7 +62,7 @@ resource "scalr_workspace" "scalrpcfgtest" {
 }
 resource "scalr_variable" "prefix" {
   key            = "prefix"
-  value          = "slave"
+  value          = "${var.prefix}_slave"
   category       = "terraform"
   environment_id = scalr_environment.scalrpcfgtest.id
   workspace_id   = scalr_workspace.scalrpcfgtest.id
