@@ -35,13 +35,13 @@ resource "scalr_provider_configuration" "scalr" {
   }
 }
 resource "scalr_environment" "scalrpcfgtest" {
-  name                    = "pcfg-test-${prefix}"
+  name                    = "pcfg-test-${var.prefix}"
   account_id              = var.account_id
   cost_estimation_enabled = false
 }
 
 resource "scalr_workspace" "scalrpcfgtest" {
-  name              = "workspace-pcfg-test-${prefix}"
+  name              = "workspace-pcfg-test-${var.prefix}"
   environment_id    = scalr_environment.scalrpcfgtest.id
   auto_apply        = false
   operations        = false
