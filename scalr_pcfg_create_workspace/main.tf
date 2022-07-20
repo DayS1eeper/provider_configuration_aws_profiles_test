@@ -17,6 +17,12 @@ variable "prefix" {
   type    = string
   default = "master"
 }
+variable "scalr_token" {
+  type    = string
+}
+variable "scalr_hostname" {
+  type    = string
+}
 
 resource "scalr_provider_configuration" "scalr" {
   name                   = "scalrpcfg"
@@ -24,8 +30,8 @@ resource "scalr_provider_configuration" "scalr" {
   export_shell_variables = false
   environments           = ["*"]
   scalr {
-    token    = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJ1c2VyIiwianRpIjoiYXQtdTU4a3Rsa2U4NHZqdDYwIn0.rRI-EjxLrgdePjX8cKM1ALBPIuiOk4TL3SQwMycEmcE"
-    hostname = "38f40dabbcc2.test-env.scalr.com"
+    token    = var.scalr_token
+    hostname = var.scalr_hostname
   }
 }
 resource "scalr_environment" "scalrpcfgtest" {
@@ -50,10 +56,27 @@ resource "scalr_workspace" "scalrpcfgtest" {
     id = scalr_provider_configuration.scalr.id
   }
 }
-resource "scalr_variable" "bucket_name_ak_v3" {
+resource "scalr_variable" "prefix" {
   key            = "prefix"
   value          = "slave"
   category       = "terraform"
   environment_id = scalr_environment.scalrpcfgtest.id
   workspace_id   = scalr_workspace.scalrpcfgtest.id
 }
+
+resource "scalr_variable" "scalr_token" {
+  key            = "scalr_token"
+  value          = var.scalr_token
+  category       = "terraform"
+  environment_id = scalr_environment.scalrpcfgtest.id
+  workspace_id   = scalr_workspace.scalrpcfgtest.id
+}
+
+resource "scalr_variable" "scalr_hostname" {
+  key            = "scalr_hostname"
+  value          = var.scalr_hostname
+  category       = "terraform"
+  environment_id = scalr_environment.scalrpcfgtest.id
+  workspace_id   = scalr_workspace.scalrpcfgtest.id
+}
+
