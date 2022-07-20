@@ -18,10 +18,10 @@ variable "prefix" {
   default = "master"
 }
 variable "scalr_token" {
-  type    = string
+  type = string
 }
 variable "scalr_hostname" {
-  type    = string
+  type = string
 }
 
 resource "scalr_provider_configuration" "scalr" {
@@ -38,6 +38,10 @@ resource "scalr_environment" "scalrpcfgtest" {
   name                    = "pcfg-test-${var.prefix}"
   account_id              = var.account_id
   cost_estimation_enabled = false
+}
+data "scalr_vcs_provider" "test" {
+  name       = "pcfg_test"
+  account_id = var.account_id
 }
 
 resource "scalr_workspace" "scalrpcfgtest" {
