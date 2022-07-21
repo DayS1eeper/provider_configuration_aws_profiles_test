@@ -1,2 +1,2 @@
 Configuration for testing scalr provider configuration.
-It creates workspace with this configuration and pass scalr credentials with scalr provider configuration.
+The configuration creates workspace with the same configuration and link to it scalr provider configuration.

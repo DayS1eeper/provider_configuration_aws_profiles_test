@@ -52,7 +52,7 @@ resource "scalr_workspace" "scalrpcfgtest" {
   vcs_provider_id   = data.scalr_vcs_provider.test.id
   working_directory = "scalr_pcfg_create_workspace"
   vcs_repo {
-    identifier = "DayS1eeper/provider_configuration_aws_profiles_test"
+    identifier = "DayS1eeper/scalr_terraform_provider_configuration_samples"
     branch     = "master"
   }
 

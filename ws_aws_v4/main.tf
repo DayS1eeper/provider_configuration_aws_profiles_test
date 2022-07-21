@@ -19,5 +19,5 @@ variable "object_name" {
 resource aws_s3_bucket_object "obj1" {
   bucket = var.bucket_name
   key    = var.object_name
-  content = "${varobject_name} content"
+  content = "${var.object_name} content"
 }

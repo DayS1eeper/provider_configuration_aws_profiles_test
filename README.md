@@ -1,0 +1,1 @@
+A set of terraform configurations used to test `provider configuration` scalr component.
