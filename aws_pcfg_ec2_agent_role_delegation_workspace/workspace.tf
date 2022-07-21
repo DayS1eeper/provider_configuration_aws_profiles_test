@@ -23,12 +23,12 @@ resource "scalr_provider_configuration" "rd" {
   aws {
     account_type        = "regular"
     credentials_type    = "role_delegation"
-    role_arn            = aws_iam_role.role_delegation_agent_ec2.arn
+    role_arn            = aws_iam_role.object_editor.arn
     # external_id         = random_string.external_id.id
     trusted_entity_type = "aws_service"
   }
   depends_on = [
-    aws_iam_role_policy.role_delegation_agent_ec2
+    aws_iam_role_policy.object_editor
   ]
 }
 resource "scalr_workspace" "rd_v3" {
