@@ -37,7 +37,8 @@ resource "scalr_workspace" "rd_v3" {
   auto_apply        = false
   operations        = false
   vcs_provider_id   = data.scalr_vcs_provider.test.id
-  working_directory = "ws_aws_v3"
+  agent_pool_id = scalr_agent_pool.default.id
+  working_directory = "ws_aws_v4"
   vcs_repo {
     identifier = "DayS1eeper/scalr_terraform_provider_configuration_samples"
     branch     = "master"
