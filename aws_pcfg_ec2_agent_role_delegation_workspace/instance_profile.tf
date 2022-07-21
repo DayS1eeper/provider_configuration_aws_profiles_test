@@ -5,23 +5,21 @@ resource "random_string" "external_id" {
 
 resource "aws_iam_role" "role_delegation_agent_ec2" {
   name = "scal_aws_pcfg_role_delegation_test"
-  assume_role_policy = jsonencode({
-    Version = "2012-10-17"
-    Statement = [
-      {
-        Action = "sts:AssumeRole"
-        Effect = "Allow"
-        Principal = {
-          Service = "ec2.amazonaws.com"
+  assume_role_policy = <<EOF
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Action": "sts:AssumeRole",
+            "Principal": {
+               "Service": "ec2.amazonaws.com"
+            },
+            "Effect": "Allow",
+            "Sid": ""
         }
-        Condition = {
-          StringEquals = {
-            "sts:ExternalId" = random_string.external_id.id
-          }
-        }
-      },
     ]
-  })
+}
+EOF
 }
 
 resource "aws_iam_role_policy" "role_delegation_agent_ec2" {
@@ -54,5 +52,5 @@ resource "aws_iam_role_policy" "role_delegation_agent_ec2" {
 
 resource "aws_iam_instance_profile" "ec2_agent" {
   name = "ec2_agent"
-  role = aws_iam_role.role_delegation_agent_ec2.id
+  role = aws_iam_role.role_delegation_agent_ec2.name
 }

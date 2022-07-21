@@ -24,7 +24,7 @@ resource "null_resource" "download_agent_deb" {
 
 resource "aws_instance" "agent-server" {
   instance_type          = "t2.micro"
-  iam_instance_profile   = aws_iam_instance_profile.ec2_agent.id
+  iam_instance_profile   = aws_iam_instance_profile.ec2_agent.name
   ami                    = data.aws_ami.ubuntu.id
   vpc_security_group_ids = ["${aws_security_group.allow_ssh.id}"]
   key_name               = aws_key_pair.key_pair.key_name

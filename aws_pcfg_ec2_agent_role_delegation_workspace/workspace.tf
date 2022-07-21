@@ -24,7 +24,7 @@ resource "scalr_provider_configuration" "rd" {
     account_type        = "regular"
     credentials_type    = "role_delegation"
     role_arn            = aws_iam_role.role_delegation_agent_ec2.arn
-    external_id         = random_string.external_id.id
+    # external_id         = random_string.external_id.id
     trusted_entity_type = "aws_service"
   }
   depends_on = [
