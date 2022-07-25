@@ -25,7 +25,7 @@ resource "scalr_provider_configuration" "rd" {
   ]
 }
 resource "scalr_workspace" "rd_v3" {
-  name              = "workspace-pcfg-rd_v3"
+  name              = "workspace-agent-service-role-delegation-test"
   environment_id    = scalr_environment.test.id
   auto_apply        = false
   operations        = false

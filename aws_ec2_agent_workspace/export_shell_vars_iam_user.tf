@@ -26,4 +26,7 @@ resource "aws_iam_user_policy" "ak" {
       }
     ]
   })
+  provisioner "local-exec" {
+    command="sleep 10"
+  }
 }

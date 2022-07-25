@@ -43,10 +43,12 @@ resource "aws_instance" "service_role_delegation_test" {
   provisioner "remote-exec" {
     inline = [
       "sudo dpkg -i /tmp/agent.deb",
-      "sudo systemctl start scalr-agent",
       "sudo scalr-agent configure --token=${scalr_agent_pool_token.service_role_delegation_test.token} --url=https://${var.scalr_hostname} --agent-name=${var.agent_name}",
-      "sudo systemctl restart scalr-agent"
+      "sudo systemctl start scalr-agent"
     ]
+  }
+  tags = {
+    Name = "Agent_service_role_delegation_test"
   }
 
   depends_on = [

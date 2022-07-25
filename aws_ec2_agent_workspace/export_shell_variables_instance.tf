@@ -17,14 +17,17 @@ resource "aws_instance" "agent_export_shell_vars_test" {
 
   provisioner "remote-exec" {
     inline = [
-      "sudo apt-get update",
-      "sudo apt-get install awscli",
+      "sudo apt-get update -y",
+      "sudo apt-get install awscli -y -qq",
       "sudo dpkg -i /tmp/agent.deb",
-      "sudo systemctl start scalr-agent",
       "sudo scalr-agent configure --token=${scalr_agent_pool_token.agent_export_shell_vars_test.token} --url=https://${var.scalr_hostname} --agent-name=${var.agent_name_export_shell_vars_test}",
-      "sudo systemctl restart scalr-agent"
+      "sudo systemctl start scalr-agent",
     ]
   }
+  tags = {
+    Name = "Agent_export_shell_vars_test"
+  }
+
 
   depends_on = [
     null_resource.download_agent_deb
