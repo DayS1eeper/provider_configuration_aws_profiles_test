@@ -12,8 +12,8 @@ resource "aws_iam_role" "object_editor" {
         Action = [
           "sts:AssumeRole",
         ]
-        Effect = "Allow",
-        Principal = {"AWS": "${aws_iam_role.ec2_role.arn}"}
+        Effect    = "Allow",
+        Principal = { "AWS" : "${aws_iam_role.ec2_role.arn}" }
       },
     ]
   })

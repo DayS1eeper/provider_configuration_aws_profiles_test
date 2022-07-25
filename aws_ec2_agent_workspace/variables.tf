@@ -17,5 +17,9 @@ variable "bucket_name" {
 
 variable "agent_name" {
   type    = string
-  default = "pcfgtest"
+  default = "agent_service_role_delegaion_test"
+}
+variable "agent_name_export_shell_vars_test" {
+  type    = string
+  default = "agent_export_shell_vars_test"
 }
