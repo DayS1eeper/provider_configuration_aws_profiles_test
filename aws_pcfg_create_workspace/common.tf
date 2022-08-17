@@ -20,3 +20,11 @@ data "aws_ami" "ubuntu" {
 
   owners = ["099720109477"]
 }
+
+resource "aws_s3_bucket" "b" {
+  bucket = var.bucket_name
+
+  tags = {
+    Name = "aws_pcfg_test"
+  }
+}
