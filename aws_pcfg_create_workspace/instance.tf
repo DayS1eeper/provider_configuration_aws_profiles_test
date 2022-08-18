@@ -19,7 +19,7 @@ EOF
 
 resource "aws_iam_instance_profile" "instance_profile" {
   name = "scalr_agent_pcfg_test"
-  role = aws_iam_role.instance_profile.name
+  role = aws_iam_role.ec2_role.name
 }
 
 resource "aws_instance" "agent_instance" {
