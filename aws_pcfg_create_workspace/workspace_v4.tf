@@ -15,6 +15,10 @@ resource "scalr_workspace" "v4_no_agent" {
   }
   provider_configuration {
     id    = scalr_provider_configuration.access_keys.id
+    alias = "instance_profile"
+  }
+  provider_configuration {
+    id    = scalr_provider_configuration.access_keys.id
     alias = "access_keys"
   }
   provider_configuration {
