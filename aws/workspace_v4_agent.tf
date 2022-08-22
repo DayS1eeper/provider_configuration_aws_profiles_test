@@ -64,7 +64,7 @@ resource "aws_iam_role_policy" "v4_agent_aws_service" {
 }
 
 resource "scalr_provider_configuration" "v4_agent_aws_service" {
-  name         = "instance_profile"
+  name         = "v4_agent_instance_profile"
   account_id   = var.account_id
   environments = ["*"]
   aws {
