@@ -1,6 +1,5 @@
 locals {
   common_name = "scalr_aws_pcfg_test_${var.test_name}_${var.creds_name}"
-  object_path = "${var.bucket_name}/${var.test_name}/${var.creds_name}"
 }
 
 resource "aws_iam_user" "access_keys" {
@@ -28,7 +27,7 @@ resource "aws_iam_user_policy" "access_keys" {
         ],
         "Effect" : "Allow",
         "Resource" : [
-          "arn:aws:s3:::${local.object_path}",
+          "arn:aws:s3:::${var.bucket_name}/${var.test_name}/${var.creds_name}",
         ]
       }
     ]

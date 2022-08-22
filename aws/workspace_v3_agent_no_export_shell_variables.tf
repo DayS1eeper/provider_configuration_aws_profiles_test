@@ -68,12 +68,14 @@ module "workspace_v3_agent_no_export" {
     {
       id                   = scalr_provider_configuration.v3_agent_no_export_aws_account.id,
       alias                = "aws_account",
-      object_to_create_key = module.pcfg_v3_agent_no_export_aws_account_creds.object_path,
+      variable_object_name = "object_aws_account",
+      object_to_create     = module.pcfg_v3_agent_no_export_aws_account_creds.object_path,
     },
     {
       id                   = scalr_provider_configuration.v3_agent_no_export_aws_service.id,
       alias                = "aws_service",
-      object_to_create_key = "v3_agent_no_export/aws_service",
+      variable_object_name = "object_aws_service",
+      object_to_create     = "v3_agent_no_export/aws_service",
     },
   ]
 }

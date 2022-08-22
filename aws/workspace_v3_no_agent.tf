@@ -50,12 +50,14 @@ module "workspace_v3_no_agent" {
     {
       id                   = scalr_provider_configuration.v3_no_agent_aws_account.id,
       alias                = "aws_account",
-      object_to_create_key = module.pcfg_v3_no_agent_aws_account_creds.object_path,
+      variable_object_name = "object_aws_account",
+      object_to_create     = module.pcfg_v3_no_agent_aws_account_creds.object_path,
     },
     {
       id                   = scalr_provider_configuration.v3_no_agent_export_shell_variables.id,
-      alias                = "export_shell_variables",
-      object_to_create_key = module.pcfg_v3_no_agent_export_shell_variables_creds.object_path,
+      alias                = "",
+      variable_object_name = "object_export_shell_variables",
+      object_to_create     = module.pcfg_v3_no_agent_export_shell_variables_creds.object_path,
     },
   ]
 }

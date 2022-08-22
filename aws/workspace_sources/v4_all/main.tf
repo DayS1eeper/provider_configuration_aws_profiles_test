@@ -47,11 +47,11 @@ resource "aws_s3_bucket_object" "aws_account" {
 }
 
 # for export_shell_variables=true
-variable "export_shell_variables_object_path" {
+variable "object_export_shell_variables" {
   type = string
 }
 module "export_shell_variables" {
   source      = "../modules/s3_obj_export_shell_variables"
-  object_path = var.export_shell_variables_object_path
+  object_path = var.object_export_shell_variables
   bucket_name = var.bucket_name
 }

@@ -9,5 +9,5 @@ output "secret_access_key" {
 }
 
 output "object_path" {
-  value = local.object_path
+  value = "${var.test_name}/${var.creds_name}"
 }

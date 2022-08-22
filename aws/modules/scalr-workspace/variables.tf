@@ -18,7 +18,8 @@ variable "provider_configurations" {
   type = list(object({
     id                   = string
     alias                = string
-    object_to_create_key = string
+    object_to_create = string
+    variable_object_name = string
   }))
 }
 

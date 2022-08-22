@@ -10,7 +10,7 @@ resource "scalr_workspace" "workspace" {
     branch     = "master"
   }
   dynamic "provider_configuration" {
-    for_each = var.provider_configurations
+    for_each = toset(var.provider_configurations)
     content {
       id    = provider_configuration.value["id"]
       alias = provider_configuration.value["alias"]
@@ -28,9 +28,9 @@ resource "scalr_variable" "bucket_name" {
 
 # object names
 resource "scalr_variable" "object_names" {
-  for_each       = var.provider_configurations
-  key            = "object_${each.value.alias}"
-  value          = each.value.object_to_create_key
+  count          = length(var.provider_configurations)
+  key            = var.provider_configurations[count.index].variable_object_name
+  value          = var.provider_configurations[count.index].object_to_create
   category       = "terraform"
   environment_id = var.environment_id
   workspace_id   = scalr_workspace.workspace.id
