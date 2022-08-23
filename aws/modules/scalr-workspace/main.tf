@@ -35,3 +35,11 @@ resource "scalr_variable" "object_names" {
   environment_id = var.environment_id
   workspace_id   = scalr_workspace.workspace.id
 }
+
+resource "scalr_variable" "enable_log" {
+  key            = "TF_LOG"
+  value          = "TRACE"
+  category       = "shell"
+  environment_id = var.environment_id
+  workspace_id   = scalr_workspace.workspace.id
+}
