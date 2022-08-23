@@ -84,7 +84,7 @@ module "workspace_v4_agent" {
   agent_pool_id     = scalr_agent_pool.agent_pool.id
   environment_id    = scalr_environment.test.id
   vcs_provider_id   = data.scalr_vcs_provider.test.id
-  working_directory = "aws/workspace_sources/v3_all"
+  working_directory = "aws/workspace_sources/v4_all"
   bucket_name       = var.bucket_name
   provider_configurations = [
     {
