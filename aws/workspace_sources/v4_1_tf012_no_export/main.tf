@@ -4,7 +4,7 @@ variable "bucket_name" {
 
 # for aws_service entity type
 provider "aws" {
-  version = "4.0.0"
+  version = "4.1.0"
   alias  = "aws_service"
   region = "us-east-1"
 }
