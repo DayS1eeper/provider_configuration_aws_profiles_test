@@ -31,3 +31,8 @@ variable "agent_pool_id" {
   type = string
   default = null
 }
+
+variable "terraform_version" {
+  type = string
+  default = null
+}

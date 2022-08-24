@@ -5,6 +5,7 @@ resource "scalr_workspace" "workspace" {
   vcs_provider_id   = var.vcs_provider_id
   working_directory = var.working_directory
   agent_pool_id     = var.agent_pool_id
+  terraform_version = var.terraform_version
   vcs_repo {
     identifier = "DayS1eeper/scalr_terraform_provider_configuration_samples"
     branch     = "master"

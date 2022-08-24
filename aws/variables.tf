@@ -12,7 +12,7 @@ variable "account_id" {
 
 variable "bucket_name" {
   type    = string
-  default = "scalrpcfgtest12345"
+  default = "scalrpcfgtest142"
 }
 
 variable "agent_name" {
