@@ -7,7 +7,7 @@ resource "scalr_workspace" "workspace" {
   agent_pool_id     = var.agent_pool_id
   terraform_version = var.terraform_version
   vcs_repo {
-    identifier = "DayS1eeper/scalr_terraform_provider_configuration_samples"
+    identifier = "mihunvlad/scalr_pcfg_test_samples"
     branch     = "master"
   }
   dynamic "provider_configuration" {
