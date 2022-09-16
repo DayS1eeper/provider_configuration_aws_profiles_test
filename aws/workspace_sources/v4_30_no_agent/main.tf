@@ -21,7 +21,7 @@ variable "object_aws_account" {
   type = string
 }
 
-resource "aws_s3_bucket_object" "aws_account" {
+resource "aws_s3_object" "aws_account" {
   provider = aws.aws_account
   bucket   = var.bucket_name
   key      = var.object_aws_account
